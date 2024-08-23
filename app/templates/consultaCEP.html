@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulta de CEP</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            margin-bottom: 5px;
+            color: #333;
+        }
+        input[type="text"] {
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .resultado {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #e0e0e0;
+            border-radius: 4px;
+        }
+        .campo {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Consulta de CEP</h1>
+        <form method="GET" action="">
+            <label for="cep">Digite o CEP:</label>
+            <input type="text" id="cep" name="cep" placeholder="Ex: 01001-000" required>
+            <button type="submit">Buscar</button>
+        </form>
+        
+        {% if endereco %}
+        <div class="resultado">
+            <div class="campo"><strong>Logradouro:</strong> {{ endereco.logradouro }}</div>
+            <div class="campo"><strong>Bairro:</strong> {{ endereco.bairro }}</div>
+            <div class="campo"><strong>Localidade:</strong> {{ endereco.localidade }}</div>
+            <div class="campo"><strong>UF:</strong> {{ endereco.uf }}</div>
+        </div>
+        {% elif not endereco and form.is_bound %}
+        <div class="resultado">
+            <strong>CEP n�o encontrado.</strong>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
