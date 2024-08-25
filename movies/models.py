@@ -1,10 +1,11 @@
 from django.db import models
 
 class Movie(models.Model):
+    id = models.AutoField(primary_key=True)
     title = models.CharField(max_length=255, blank=True, null=True)
-    type = models.CharField(max_length=150, blank=True, null=True)
-    year = models.DateField(blank=True, null=True)
-    plot = models.CharField(max_length=255)
+    userName = models.CharField(max_length=255, blank=True, null=True)
+    userRating = models.IntegerField(blank=True, null=True)
+    userReview = models.TextField(blank=True, null=True)
 
     def __str__(self):
-        return f'Title: {self.title}, Type: {self.type}, Year: {self.year}, Plot: {self.plot}'
+        return f'Title: {self.title}, User name: {self.userName}, User rating: {self.userRating}, User review: {self.userReview}'
