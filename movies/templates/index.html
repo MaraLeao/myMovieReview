@@ -1,0 +1,166 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+        }
+        .divMain {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            font-size: 24px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        form {
+            text-align: center;
+        }
+        .inputType {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        .btn-search-movie {
+            padding: 10px 20px;
+            font-size: 14px;
+            background-color: #e666a0;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .btn-search-movie:hover {
+            background-color: #e666a0;
+        }
+        .result {
+            margin-top: 20px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+            text-align: center;
+            display: flex;
+        }
+
+        .success-message {
+            background-color: #e666a0;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            margin-top: 20px;
+            border-radius: 8px;
+        }
+
+        .result-image {
+            width: 50%;
+        }
+
+        .result-image img {
+            border-radius: 10px;
+            width: 100%;
+        }
+
+        .result-data {
+            width:50%;
+            padding-left:10%;
+            text-align: left;
+        }
+
+        .title-data {
+            font-size: large;
+        }
+
+        .result-data div {
+            margin-top:3%
+        }
+
+        .form-control {
+            margin:2%;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width:40%;
+            padding: 1.5%;
+        }
+
+        .form-control label {
+            vertical-align: middle;
+        }
+        
+        a {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #e666a0;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <a href="{% url 'home' %}">Go to Reviews</a>
+
+    <div class="divMain">
+        <h1>My Movie Review</h1>
+        <form method="GET" action="">
+            <label for="title">Movie title: </label><br>
+            <input type="text" id="title" name="title" class="inputType" placeholder="Ex: Madagascar" required>
+            <button class="btn-search-movie" type="submit">Find</button>
+        </form>
+
+        {% if movie_view %}
+        <div class="result">
+            <div class="result-image">
+                <img src="{{ movie_view.poster }}"/>
+            </div>
+            
+            <div class="result-data">
+                <div class="title-data"><b>{{ movie_view.title }}</b></div>
+                <div><b>Type: </b>{{ movie_view.type }}</div>
+                <div><b>Release:</b> {{ movie_view.release }}</div>
+                <div><b>Genre:</b> {{ movie_view.genre }}</div>
+                <div><b>Director: </b>{{ movie_view.director }}</div>
+                <div><b>Writer:</b>{{ movie_view.writer }}</div>
+                <div><b>Actors:</b> {{ movie_view.actors }}</div>
+                <div><b>Awards:</b> {{ movie_view.awards }}</div>
+                <div><b>Plot: </b>{{ movie_view.plot }}</div>
+            </div>
+        </div>
+
+        <form method="POST" action="" class="review-form">
+            {% csrf_token %}
+            {{ review_form.as_p }}
+            <input type="submit" value="Submit" class="btn-search-movie">
+        </form>
+        {% endif %}
+
+        {% if movie %}
+        <div class="success-message">
+            Review submitted successfully!
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
