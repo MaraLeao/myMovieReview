@@ -34,12 +34,13 @@
  - **OMDB API**: API used to obtain movie information.
  - **PostgreSQL**: Database used to store reviews.
 
-## Project Setup
+## Project local Setup
 
 ### Requirements
 
 - Python 3.x
 - Django 3.x or higher
+- PostgreeSQL
 
 ### Installation
 
