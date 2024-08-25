@@ -2,13 +2,17 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .models import Movie
 from .forms import MovieSearchForm, ReviewForm
 import requests
+import environ
+
+env = environ.Env()
+environ.Env.read_env()
 
 class MoviePages:
     def __init__(self):
         self.movie_view = {}
 
     def getMovie(self, title):
-        api_key = '2f0e70a3'
+        api_key = env("OMDB_API_KEY")
         response =  requests.get(f'http://www.omdbapi.com/?apikey={api_key}&t={title}')
     
         if response.status_code == 200:
