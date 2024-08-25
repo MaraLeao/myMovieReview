@@ -4,6 +4,24 @@
 
 **My Movie Review** is a Django project that allows users to search for movie information and add their own reviews. Users can search for movies by title, view details about the returned movie, and submit a review with their name, rating, and comments. Reviews are stored in a database and can be edited, deleted, or viewed later.
 
+### Running the Project
+
+1. Requirements: Docker
+   ```bash
+   docker-compose up -d --build
+
+2. Make migrates
+   ```bash
+   docker-compose exec web python manage.py migrate --noinput
+   
+2. Start the server
+   ```bash
+    docker-compose exec web python manage.py runserver 0.0.0.0:8000
+   
+3. Acess the aplication
+  - Open a browser and go to http://localhost:8000/ to start using My Movie Review.
+
+
 ## Features
 
 - **Movie Search**: Allows users to search for movies by title and obtain detailed information about the movie.
@@ -70,19 +88,6 @@
             }
         return None
      
-### Running the Project
-
-1. Apply Migrations
-   ```bash
-   python manage.py migrate
-   
-2. Start the server
-   ```bash
-   python manage.py runserver
-   
-3. Acess the aplication
-  - Open a browser and go to http://127.0.0.1:8000/ to start using My Movie Review.
-
 ## Project Structure
 
 The project is organized into several key files and directories. Below is an overview of the main components:
