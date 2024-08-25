@@ -40,7 +40,7 @@
 
 - Python 3.x
 - Django 3.x or higher
-- PostgreeSQL
+- PostgreSQL
 
 ### Installation
 
