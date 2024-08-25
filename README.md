@@ -4,7 +4,7 @@
 
 **My Movie Review** is a Django project that allows users to search for movie information and add their own reviews. Users can search for movies by title, view details about the returned movie, and submit a review with their name, rating, and comments. Reviews are stored in a database and can be edited, deleted, or viewed later.
 
-### Running the Project
+### Running with Docker
 
 1. Requirements: Docker
    ```bash
@@ -38,8 +38,8 @@
 
 ### Requirements
 
-- Python 3.x
-- Django 3.x or higher
+- Python 3.10 or higher
+- Django 5.0 or higher
 - PostgreSQL
 
 ### Installation
