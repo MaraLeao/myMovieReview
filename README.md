@@ -142,4 +142,3 @@ A command-line utility that lets you interact with this Django project. You can 
 ### `LICENSE`
 - Contains the license information for the project.
 
-This section describes the directory structure and key files in your Django project, providing a clear overview of how the project is organized. Adjust the file and directory names as needed to match your actual project structure.
