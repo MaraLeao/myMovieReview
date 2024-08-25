@@ -32,7 +32,7 @@
 
  - **Django**: Web framework used for project development.
  - **OMDB API**: API used to obtain movie information.
- - **SQLite**: Database used to store reviews.
+ - **PostgreSQL**: Database used to store reviews.
 
 ## Project Setup
 
