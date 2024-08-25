@@ -1,2 +1,0 @@
-workshop fábrica 
-Django api
